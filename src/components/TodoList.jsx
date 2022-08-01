@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { CloseIcon } from "@chakra-ui/icons";
 
-const TodoList = ({ todos, deleteTodo }) => {
+export default function TodoList({ todos, deleteTodo }) {
   if (!todos.length) {
     return (
       <Badge colorScheme="green" p="4" m="4" borderRadius="lg">
@@ -43,6 +43,4 @@ const TodoList = ({ todos, deleteTodo }) => {
       ))}
     </VStack>
   );
-};
-
-export default TodoList;
+}

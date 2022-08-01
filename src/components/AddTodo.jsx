@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, HStack, Input, useToast } from "@chakra-ui/react";
 import { nanoid } from "nanoid";
 
-const AddTodo = ({ addTodo }) => {
+export default function AddTodo({ addTodo }) {
   const toast = useToast();
 
   const handleSubmit = (e) => {
@@ -43,6 +43,4 @@ const AddTodo = ({ addTodo }) => {
       </HStack>
     </form>
   );
-};
-
-export default AddTodo;
+}

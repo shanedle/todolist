@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Heading, IconButton, VStack, useColorMode } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+
 import TodoList from "./components/TodoList";
 import AddTodo from "./components/AddTodo";
 
-const App = () => {
+export default function App() {
   const [todos, setTodos] = useState(
     () => JSON.parse(localStorage.getItem("todos")) || []
   );
+
+  const { colorMode, toggleColorMode } = useColorMode();
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -23,8 +26,6 @@ const App = () => {
   const addTodo = (todo) => {
     setTodos([...todos, todo]);
   };
-
-  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <VStack p={4}>
@@ -48,6 +49,4 @@ const App = () => {
       <TodoList todos={todos} deleteTodo={deleteTodo} />
     </VStack>
   );
-};
-
-export default App;
+}
